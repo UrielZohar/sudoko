@@ -4,6 +4,7 @@ class GameManager {
   rows = [];
   colums = [];
   cubes = [];
+  sorter = (a,b) => a - b;
   constructor(target, cubeSize, callback) {
     this.target = target;
     this.cubeSize = cubeSize;
@@ -63,7 +64,7 @@ class GameManager {
   }
 
   isRowValid(rowNumber) {
-      const row = [...this.rows[rowNumber - 1]].sort();
+      const row = [...this.rows[rowNumber - 1]].sort(this.sorter);
       for (let idx = 0; idx < this.cubeSize; idx++) {
         if (row[idx] != (idx + 1)) {
           return false;
@@ -73,7 +74,7 @@ class GameManager {
   }
 
   isColumnValid(colNumber) {
-      const col = [...this.colums[colNumber - 1]].sort();
+      const col = [...this.colums[colNumber - 1]].sort(this.sorter);
       for (let idx = 0; idx < this.cubeSize; idx++) {
         if (col[idx] != (idx + 1)) {
           return false;
@@ -83,7 +84,7 @@ class GameManager {
   }
 
   isCubeValid(cubeNumber) {
-      const cube = [...this.cubes[cubeNumber - 1]].sort();
+      const cube = [...this.cubes[cubeNumber - 1]].sort(this.sorter);
       for (let idx = 0; idx < this.cubeSize; idx++) {
         if (cube[idx] != (idx + 1)) {
           return false;
