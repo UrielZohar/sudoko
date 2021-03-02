@@ -157,7 +157,7 @@ const changeCallback = (event) => {
 }
 
 
-const CUBE_SIZE = prompt("Please enter the size of the cube: ", 3);
+const CUBE_SIZE = +prompt("Please enter the size of the cube: ", 3);
 const gameManager = new GameManager(
   document.getElementById('target'), 
   +CUBE_SIZE,
@@ -179,7 +179,7 @@ document.getElementById("easy").addEventListener("click", () => {
     +CUBE_SIZE,
     changeCallback
   );
-  myGameManager.generateNumbers(10);
+  myGameManager.generateNumbers(Math.floor(Math.pow(CUBE_SIZE, 3) * 0.3));
 });
 document.getElementById("medium").addEventListener("click", () => {
   let myGameManager = new GameManager(
@@ -187,7 +187,7 @@ document.getElementById("medium").addEventListener("click", () => {
     +CUBE_SIZE,
     changeCallback
   );
-  myGameManager.generateNumbers(20);
+  myGameManager.generateNumbers(Math.floor(Math.pow(CUBE_SIZE, 3) * 0.6));
 });
 
 document.getElementById("hard").addEventListener("click", () => {
@@ -196,7 +196,7 @@ document.getElementById("hard").addEventListener("click", () => {
     +CUBE_SIZE,
     changeCallback
   );
-  myGameManager.generateNumbers(30);
+  myGameManager.generateNumbers(Math.floor(Math.pow(CUBE_SIZE, 3) * 0.9));
 });
 
 
