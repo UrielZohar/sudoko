@@ -123,7 +123,6 @@ class GameManager {
       let cellNumber = Math.floor(Math.random() * (this.cubeSize * this.cubeSize)) + 1;
       const value = Math.floor(Math.random() * (this.cubeSize * this.cubeSize)) + 1;
       const inputElement = this.target.querySelector(`input[cube-num='${cubeNumber}'][cell-num='${cellNumber}']`);
-      debugger;
       if (inputElement.value) {
         continue;
       }
@@ -168,7 +167,7 @@ const gameManager = new GameManager(
 
 document.getElementById("checkGame").addEventListener("click", () => {
   if (gameManager.isBoardValid()) {
-    window.alert("You solve the game !");
+    window.alert("You solved the game !");
   } else {
     window.alert("You have a problem, try again");
   }
